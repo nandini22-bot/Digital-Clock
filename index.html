@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="card">
+      <h1>Smart Clock</h1>
+
+      <div class="clock-wrap">
+        <p id="clock" class="clock-time">00:00:00</p>
+        <p id="date" class="clock-date">Sunday, 1 January 2000</p>
+      </div>
+
+      <div class="toggle-row">
+        <button id="formatToggle" class="btn btn-secondary" type="button">Switch to 12-hour</button>
+        <button id="themeToggle" class="btn btn-secondary" type="button">Dark mode</button>
+      </div>
+
+      <section class="alarm-panel">
+        <h2>Set Alarm</h2>
+        <div class="alarm-input-row">
+          <input id="alarmTimeInput" type="time" aria-label="Alarm time">
+          <select id="alarmPeriod" aria-label="AM or PM">
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+          </select>
+          <button id="addAlarmBtn" class="btn" type="button">Add Alarm</button>
+        </div>
+        <p id="alarmMessage" class="alarm-message" aria-live="polite"></p>
+
+        <div class="ringing-controls">
+          <button id="stopAlarmBtn" class="btn btn-danger" type="button">Stop Alarm</button>
+          <button id="snoozeBtn" class="btn btn-warning" type="button">Snooze 5 min</button>
+        </div>
+
+        <h3>Saved Alarms</h3>
+        <div id="react-root"></div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Small beep sound in base64 so project works without extra files -->
+  <audio id="alarmAudio" preload="auto">
+    <source
+      src="data:audio/wav;base64,UklGRmQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YUAAAAAAAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA"
+      type="audio/wav">
+  </audio>
+
+  <script src="script.js"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="react-app.js"></script>
+</body>
+</html>
